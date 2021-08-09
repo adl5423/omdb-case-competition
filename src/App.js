@@ -17,6 +17,9 @@ function App() {
         >
           Learn React
         </a>
+        <p>
+          Testing OMDB Page
+        </p>
       </header>
     </div>
   );
