@@ -40,13 +40,8 @@
     @include button-teal;
   }
 
-  .disabled {
-    background-color: $color-blue;
-    border-color: $color-blue;
-    color: $white;
-
-    pointer-events: none;
-    cursor: auto;
+  .disabled{
+    @include button-teal-disabled;
   }
 }
 
