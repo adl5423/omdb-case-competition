@@ -53,9 +53,6 @@ function Home() {
 
     return (
         <>
-            <Link to="/login">
-                <a id="login-btn">Login</a>
-            </Link>
             <div id="search" class="search-container">
                 <h1 id="search-title">looking for something?</h1>
                 <form onSubmit={onFormSubmit}>
@@ -66,7 +63,7 @@ function Home() {
                         </button>
                     </Link>
                 </form>
-                <a href="#movies" id="scroll-btn">More Content</a>
+                <a href="#movies" id="search-btn">More Content</a>
             </div>
 
             <div id="movies" class="movies-container">
@@ -99,6 +96,8 @@ function Home() {
                         xxx
                     </div>
                 </div>
+
+                <a id="scroll-btn" href="#">Scroll to top</a>
             </div>
         </>
     );
