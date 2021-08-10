@@ -37,6 +37,25 @@
   }
 }
 
+@mixin button-purple{
+  text-align: center;
+  color: #EC49FF;
+  border: 1px solid #EC49FF;
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+
+  width: 12rem;
+
+  transition: 0.5s;
+
+  &:hover{
+    color: #75fff6;
+    border: 1px solid #75fff6;
+    transition: 0.5s;
+  }
+}
+
 @mixin container-style{
   width: 80%;
   border: 2px solid;
