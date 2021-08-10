@@ -1,0 +1,36 @@
+/* reset  */
+* {
+  box-sizing: border-box;
+}
+
+body { 
+  line-height: 1; 
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+h1,h2,h3 {
+  margin: 0;
+  line-height: 1;
+}
+
+a{ text-decoration: none;}

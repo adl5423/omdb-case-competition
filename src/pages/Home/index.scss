@@ -1,0 +1,42 @@
+@import "../../styles/mixins/mixins.scss";
+
+#search, #movies{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#search-field {
+    margin-top: 25px;
+    width: 800px;
+    height: 50px;
+    border-radius: 30px;
+    outline: none;
+}
+
+.search-container, .movies-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    h3 {
+        align-self: flex-start;
+        margin-left: 9rem;
+    }
+}
+
+.movies-section{
+    @include container-style;
+    margin-top: 10px;
+    margin-bottom: 31px;
+}
+#scroll-btn{
+    @include button-teal;
+
+    position: absolute;
+    top: 90vh;
+    left: 42.9vw;
+}
+
+#login-btn{ @include button-purple; }
