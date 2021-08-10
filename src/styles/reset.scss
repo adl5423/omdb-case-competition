@@ -3,17 +3,31 @@
   box-sizing: border-box;
 }
 
-body { line-height: 1; }
+body { 
+  line-height: 1; 
+}
 
-ul { list-style: none; }
-p{ margin: 0; }
+ul { 
+  list-style: none; 
+}
 
-figure { margin: 0; } 
-button {cursor: pointer;}
+p { 
+  margin: 0; 
+}
+
+figure { 
+  margin: 0; 
+} 
+
+button {
+  cursor: pointer;
+}
 
 h1,h2,h3 {
   margin: 0;
   line-height: 1;
 }
 
-a{ text-decoration: none;}
+a { 
+  text-decoration: none;
+}
