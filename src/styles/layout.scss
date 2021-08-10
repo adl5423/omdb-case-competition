@@ -1,6 +1,8 @@
 html,body{
   height: 100%;
   width: 100%;
+
+  line-height: 1.2;
   
   scroll-behavior: smooth;
   font-family: 'Ubuntu', sans-serif;
@@ -9,4 +11,9 @@ html,body{
   background-size: 300%;
 
   color: $white;
+}
+
+h1{
+  font-size: 3rem;
+  line-height: 3;
 }

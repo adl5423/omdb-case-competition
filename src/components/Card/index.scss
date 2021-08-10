@@ -1,0 +1,38 @@
+@import "../../styles/mixins/mixins.scss";
+@import '/./src/styles/colors/colors.scss';
+
+
+.card-container{
+  @include container-style;
+  display:flex;
+  flex-direction: row;
+
+  flex: 1;
+  gap: 2rem;
+
+  margin: 2rem 0;
+
+  .card-body{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+  }
+  
+  .card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .description{
+    margin: 1rem 0;
+  }
+
+  & .card-btn-container{
+
+  }
+
+  .card-btn{
+    @include button-pink;
+  }
+}

@@ -28,6 +28,7 @@
 
 @mixin button-pink{
   @include button-teal;
+  margin-left: 0;
   color: $color-pink;
   border-color: $color-pink;
 
