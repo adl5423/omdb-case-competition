@@ -1,3 +1,5 @@
+@import "../../styles/mixins/mixins.scss";
+
 #dashboard, #likedMovies, #recommended, #moreFromGenre{
   width: 100vw;
   height: 100vh;
@@ -22,12 +24,7 @@
 
 
 .landing-content{
-  width: 80%;
-  border: 2px solid;
-  border-image: linear-gradient(180deg, #FC36FF, #44CBFF) 1;
-  background-color: rgba(33, 16, 60, 0.4);
-
-  padding: 2rem;
+  @include container-style;
 }
 
 .button-container{
@@ -38,24 +35,7 @@
   padding: 1rem 0;
 
   .scroll-btn{
-    //@use button-teal;
-    display: inline-block;
-    text-align: center;
-    color: #44CBFF;
-    border: 1px solid #44CBFF;
-    border-radius: 5px;
-    margin: 1rem;
-    margin-left: 0;
-    padding: 0.5rem 1rem;
-  
-    width: 12rem;
-    transition: 0.5s;
-
-    &:hover{
-      color: #ceafff;
-      border: 1px solid #ceafff;
-      transition: 0.5s;
-    }
+    @include button-teal;
   }
 
   .disabled{
