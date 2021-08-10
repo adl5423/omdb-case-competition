@@ -6,12 +6,18 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.1.0",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-bootstrap-carousel": "^4.1.1",
     "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "react-rating-stars-component": "^2.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "scss": "^0.2.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -37,5 +43,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-scss": "^3.20.1"
+  },
+  "stylelint-scss": {
+    "rules": {
+      "at-rule-no-unknown": null,
+      "scss/at-rule-no-unknown": true
+    }
   }
 }
