@@ -3,6 +3,7 @@
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 body { line-height: 1; }
 
 ul { list-style: none; }
@@ -10,10 +11,37 @@ p{ margin: 0; }
 
 figure { margin: 0; } 
 button {cursor: pointer;}
+=======
+body { 
+  line-height: 2; 
+}
+
+ul { 
+  list-style: none; 
+}
+
+p { 
+  margin: 0; 
+}
+
+figure { 
+  margin: 0; 
+} 
+
+button {
+  cursor: pointer;
+}
+>>>>>>> 4ba358a2493c013878e635a575856d373da83701
 
 h1,h2,h3 {
   margin: 0;
   line-height: 1;
 }
 
+<<<<<<< HEAD
 a{ text-decoration: none;}
+=======
+a { 
+  text-decoration: none;
+}
+>>>>>>> 4ba358a2493c013878e635a575856d373da83701
