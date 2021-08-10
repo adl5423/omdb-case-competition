@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './index.scss'
 import '../../styles/index.scss'
-// eslint-disable-next-line 
+// eslint-disable-next-line
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import {
   searchMovieList,
@@ -23,7 +23,7 @@ function Home() {
         };
         fetchAPI();
       }, []);
- 
+
     const onFormSubmit = e => {
         e.preventDefault();
      }
@@ -51,8 +51,8 @@ function Home() {
       });
 
 
-    return (     
-        <div>
+    return (
+        <>
             <Link to="/login">
                 <a id="login-btn">Login</a>
             </Link>
