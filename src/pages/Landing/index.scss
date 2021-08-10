@@ -1,6 +1,7 @@
 @import "../../styles/mixins/mixins.scss";
+@import '/./src/styles/colors/colors.scss';
 
-#dashboard, #likedMovies, #recommended, #moreFromGenre{
+#dashboard, #likedMovies, #recommended, #moreFromGenre {
   width: 100vw;
   height: 100vh;
 
@@ -9,39 +10,40 @@
   align-items: center;
   justify-content: center;
 
-  p{
+  p {
     font-size: 1.7rem;
   }
 
-  h1{
+  h1 {
     padding-bottom: 1rem;
   }
-  h2{
+
+  h2 {
     width: 80%;
     margin: 1rem 0;
   }
 }
 
 
-.landing-content{
+.landing-content {
   @include container-style;
 }
 
-.button-container{
+.button-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
 
   padding: 1rem 0;
 
-  .scroll-btn{
+  .scroll-btn {
     @include button-teal;
   }
 
-  .disabled{
-    background-color: #2eacdd;
-    border-color: #2eacdd;
-    color: #fff;
+  .disabled {
+    background-color: $color-blue;
+    border-color: $color-blue;
+    color: $white;
 
     pointer-events: none;
     cursor: auto;
