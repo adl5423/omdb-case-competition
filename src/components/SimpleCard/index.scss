@@ -1,0 +1,15 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-right: 2rem;
+  
+  img{
+      height: 20rem;
+      border: 1px solid white;
+  }
+  h3{
+      font-size: 1.5rem;
+      margin-top: 1rem;
+  }
+}

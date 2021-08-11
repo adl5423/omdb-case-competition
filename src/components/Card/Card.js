@@ -3,18 +3,18 @@ import './index.scss';
 
 function Card() {
     return (
-        <div class= "card-container">
+        <div className= "card-container">
             <img src="https://via.placeholder.com/220x350.png" alt="Card img here" />
-            <div class="card-body">
-                <div class="card-header">
-                    <h2 class="title">Movie Title (Year)</h2>
-                    <h3 class="rating">[rating]</h3>
+            <div className="card-body">
+                <div className="card-header">
+                    <h2 className="title">Movie Title (Year)</h2>
+                    <h3 className="rating">[rating]</h3>
                 </div>
-                <p class="description">Description</p>
+                <p className="description">Description</p>
 
-                <div class="card-btn-container">
-                    <a class="card-btn" href="somethinghere">Watch on [streaming platform]</a>
-                    <button class="card-btn">Like</button>
+                <div className="card-btn-container">
+                    <a className="card-btn" href="somethinghere">Watch on [streaming platform]</a>
+                    <button className="card-btn">Like</button>
                 </div>
             </div>
         </div>

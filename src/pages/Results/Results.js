@@ -6,11 +6,25 @@ import './index.scss';
 import '../../styles/index.scss'
 
 function Results() {
+    const [query, setQuery] = useState("");
+
+    const onFormSubmit = e => {
+        e.preventDefault();
+    }
+
+    const handleChange = event => {
+        setQuery(event.target.value);
+    }
+
+    useEffect(() => {
+        setQuery(localStorage.getItem('query'));
+    }, []);
+
     return (
-        <div class="results-page">
+        <div className="results-page">
             <h1>Looking for something?</h1>
             <form onSubmit={onFormSubmit}>
-                <input type="text" placeholder= {query === "" ? "Search here" : query} id="search-field" name="search-field" />
+                <input type="text" placeholder= {query} id="search-field" name="search-field" onChange={handleChange}/>
                 <Link to="/results">
                     <button type="submit">
                         Search
