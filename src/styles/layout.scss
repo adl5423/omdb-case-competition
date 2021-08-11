@@ -1,3 +1,4 @@
+@import "./mixins/mixins.scss";
 html,body{
   height: 100%;
   width: 100%;
@@ -8,11 +9,19 @@ html,body{
   font-family: 'Ubuntu', sans-serif;
 
   background-image: url("https://cdn.suwalls.com/wallpapers/abstract/purple-blur-45795-1920x1080.jpg");
-  background-size: 300%;
+  background-size: 500% ;
   color: $white;
 }
 
 h1{
   font-size: 3rem;
   line-height: 1.5;
+}
+
+#home-link{
+  @include button-teal;
+  width: max-content;
+  position:fixed;
+  bottom: 0;
+  margin: 1rem;
 }
