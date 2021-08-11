@@ -4,11 +4,18 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Results from './pages/Results/Results'
 import Logging from './pages/Logging/Logging'
+import { Link } from 'react-router-dom'
+
+import "./styles/index.scss";
 
 function App() {
     return (
         <Router>
             <div className="content">
+                <Link to="/">
+                    <button id="home-link">HOME</button>
+                </Link>
+
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/login" component={Login} />

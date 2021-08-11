@@ -78,6 +78,7 @@ function Home(props) {
 
     return (
       <>
+
         <div id="search" class="search-container">
             <h1 id="search-title">Need something to watch?</h1>
             <Searchbar />
