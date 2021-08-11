@@ -1,6 +1,7 @@
 
 export const URL = 'https://api.themoviedb.org/3';
 export const NOW_PLAYING_URL = `${URL}/movie/now_playing`;
+export const UPCOMING_URL = `${URL}/movie/upcoming`;
 export const TOP_RATED_URL = `${URL}/movie/top_rated`;
 export const DETAIL_URL = `${URL}/movie`;
 export const GENRE_URL = `${URL}/genre/movie/list`;

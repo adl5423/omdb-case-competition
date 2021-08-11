@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {MOVIES_URL,SEARCH_URL, DETAIL_URL, GENRE_URL, API_KEY, NOW_PLAYING_URL, TOP_RATED_URL, PERSON_WEEK_URL} from '../const';
+import {UPCOMING_URL, MOVIES_URL,SEARCH_URL, DETAIL_URL, GENRE_URL, API_KEY, NOW_PLAYING_URL, TOP_RATED_URL, PERSON_WEEK_URL} from '../const';
 
 
 export const fetchMovies = async () => {
@@ -104,6 +104,32 @@ export const fetchMovieDetail = async (id) => {
         });
         return data;
     } catch (error) { }
+}
+
+export const fetchUpcomingMovies = async () => {
+    try {
+        const { data } = await axios.get(UPCOMING_URL, {
+            params: {
+                api_key: API_KEY,
+                language: 'en_US',
+                page: 1
+            }
+        })
+        const posterUrl = 'https://image.tmdb.org/t/p/original/';
+        const modifiedData = data['results'].map((m) => ({
+            id: m['id'],
+            backPoster: posterUrl + m['backdrop_path'],
+            popularity: m['popularity'],
+            title: m['title'],
+            poster: posterUrl + m['poster_path'],
+            overview: m['overview'],
+            rating: m['vote_average'],
+        }))
+        console.log(modifiedData);
+        return modifiedData;
+    } catch (error) {
+
+    }
 }
 
 export const fetchSimilarMovie = async (id) => {

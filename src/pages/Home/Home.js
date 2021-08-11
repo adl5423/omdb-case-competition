@@ -5,6 +5,7 @@ import '../../styles/index.scss'
 import Searchbar from "../../components/Searchbar/Searchbar.js";
 // eslint-disable-next-line
 import {
+  fetchUpcomingMovies,
   searchMovieList,
   fetchMovies,
   fetchGenre,
@@ -17,10 +18,12 @@ function Home(props) {
     const [genres, setGenres] = useState([]);
     const [movieByGenre, setMovieByGenre] = useState([]);
     const [topRated, setTopRated] = useState([]);
+    const [upcomingMovies, setUpcomingMovies] = useState([]);
 
     useEffect(() => {
       const fetchAPI = async () => {
         setNowPlaying(await fetchMovies());
+        setUpcomingMovies(await fetchUpcomingMovies());
         setGenres(await fetchGenre());
         setMovieByGenre(await fetchMovieByGenre(28));
         setTopRated(await fetchTopratedMovie());
@@ -55,7 +58,8 @@ function Home(props) {
       );
     });
 
-    const movieList = movieByGenre.slice(0, 8).map((item, index) => {
+  
+    const movieList = movieByGenre.slice(0, 20).map((item, index) => {
       return (
         <div className="card" key={index}>
           <Link to={`/movie/${item.id}`}>
@@ -66,7 +70,19 @@ function Home(props) {
       );
     });
 
-    const topRatedList = topRated.slice(0, 8).map((item, index) => {
+    const upcomingList = upcomingMovies.slice(0, 20).map((item, index) => {
+      return (
+        <div className="card" key={index}>
+          <Link to={`/movie/${item.id}`}>
+            <img src={item.poster} alt={item.title}></img>
+          </Link>
+          <h3>{item.title}</h3>
+        </div>
+      );
+    });
+
+  
+    const topRatedList = topRated.slice(0, 20).map((item, index) => {
       return (
         <div className="card" key={index}>
           <Link to={`/movie/${item.id}`}>
@@ -90,8 +106,8 @@ function Home(props) {
 
             <h2>What to stream...</h2>
             <div class="movies-section">
-                <div class="button-container">
-                    {/* //insert tabs here */}
+              <div class="movie-content">
+                {topRatedList}
                 </div>
             </div>
 
@@ -113,7 +129,7 @@ function Home(props) {
             <h2>Movies That Came Out Today</h2>
             <div class="movies-section">
                 <div class="movie-content">
-                    xxx
+                    {upcomingList}
                 </div>
             </div>
 
