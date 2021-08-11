@@ -16,7 +16,7 @@ function Home() {
     const [genres, setGenres] = useState([]);
     const [movieByGenre, setMovieByGenre] = useState([]);
     const [topRated, setTopRated] = useState([]);
-  
+
     useEffect(() => {
       const fetchAPI = async () => {
         setNowPlaying(await fetchMovies());
@@ -24,33 +24,39 @@ function Home() {
         setMovieByGenre(await fetchMovieByGenre(28));
         setTopRated(await fetchTopratedMovie());
       };
-  
+
       fetchAPI();
     }, []);
 
     const onFormSubmit = e => {
       e.preventDefault();
    }
-  
+
     const handleGenreClick = async (genre_id) => {
       setMovieByGenre(await fetchMovieByGenre(genre_id));
     };
-    
+
+
     const genreList = genres.map((item, index) => {
+      const pickedGenres = ['Action', 'Adventure', 'Animation', 'Comedy', 'Drama', 'Horror', 'Romance', 'Science Fiction', 'TV Movie', 'Thriller'];
       return (
-        <li className="list-inline-item" key={index}>
-          <button
-            type="button"
-            onClick={() => {
-              handleGenreClick(item.id);
-            }}
-          >
-            {item.name}
-          </button>
-        </li>
+        <>
+          {pickedGenres.includes(item.name) ?
+            (<li className="list-inline-item" key={index}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleGenreClick(item.id);
+                  }}
+                >
+                  {item.name}
+                </button>
+            </li>)
+        : null}
+        </>
       );
     });
-  
+
     const movieList = movieByGenre.slice(0, 4).map((item, index) => {
       return (
         <div className="card" key={index}>
@@ -61,7 +67,7 @@ function Home() {
         </div>
       );
     });
-  
+
     const topRatedList = topRated.slice(0, 8).map((item, index) => {
       return (
         <div className="card" key={index}>
@@ -71,7 +77,7 @@ function Home() {
         </div>
       );
     });
-  
+
     return (
       <>
         <div id="search" class="search-container">
@@ -108,7 +114,7 @@ function Home() {
             <ul className="list-inline">{genreList}</ul>
             <div class="movies-section">
                 <div class="movie-content">
-                  {movieList} 
+                  {movieList}
                 </div>
             </div>
 
