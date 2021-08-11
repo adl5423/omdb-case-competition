@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './index.scss'
 import '../../styles/index.scss'
-import Searchbar from "../../components/Searchbar/Searchbar.js";
+import SimpleCard from '../../components/SimpleCard/SimpleCard'
+import MovieSection from '../../components/MovieSection/MovieSection'
 // eslint-disable-next-line
 import {
   fetchUpcomingMovies,
@@ -19,6 +20,8 @@ function Home(props) {
     const [movieByGenre, setMovieByGenre] = useState([]);
     const [topRated, setTopRated] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
+    const [query, setQuery] = useState("Search here");
+    console.log(query)
 
     useEffect(() => {
       const fetchAPI = async () => {
@@ -32,7 +35,14 @@ function Home(props) {
       fetchAPI();
     }, []);
 
+    const onFormSubmit = e => {
+      e.preventDefault();
+    }
 
+    const handleChange = event => {
+      localStorage.setItem('query', event.target.value);
+      setQuery(event.target.value);
+    }
 
     const handleGenreClick = async (genre_id) => {
       setMovieByGenre(await fetchMovieByGenre(genre_id));
@@ -57,81 +67,50 @@ function Home(props) {
         </>
       );
     });
-
   
     const movieList = movieByGenre.slice(0, 20).map((item, index) => {
       return (
-        <div className="card" key={index}>
-          <Link to={`/movie/${item.id}`}>
-            <img src={item.poster} alt={item.title}></img>
-          </Link>
-          <h3>{item.title}</h3>
-        </div>
+        <SimpleCard item={item} index={index} />
       );
     });
 
     const upcomingList = upcomingMovies.slice(0, 20).map((item, index) => {
       return (
-        <div className="card" key={index}>
-          <Link to={`/movie/${item.id}`}>
-            <img src={item.poster} alt={item.title}></img>
-          </Link>
-          <h3>{item.title}</h3>
-        </div>
+        <SimpleCard item={item} index={index} />
       );
     });
-
   
     const topRatedList = topRated.slice(0, 20).map((item, index) => {
       return (
-        <div className="card" key={index}>
-          <Link to={`/movie/${item.id}`}>
-            <img src={item.poster} alt={item.title}></img>
-          </Link>
-        </div>
+        <SimpleCard item={item} index={index} />  
       );
     });
 
     return (
       <>
-
-        <div id="search" class="search-container">
+        <div id="search" className="search-container">
             <h1 id="search-title">Need something to watch?</h1>
-            <Searchbar />
+            <form onSubmit={onFormSubmit}>
+                <input type="text" placeholder = {query} id="search-field" name="search-field" onChange={handleChange}/>
+                <Link to="/results">
+                    <button type="submit">
+                        Search
+                    </button>
+                </Link>
+            </form>
             <a href="#movies" id="search-btn">I'm not sure...</a>
         </div>
 
-        <div id="movies" class="movies-container">
+        <div id="movies" className="movies-container">
             <h1 id="more-content-title">If you're indecisive...</h1>
 
-            <h2>What to stream...</h2>
-            <div class="movies-section">
-              <div class="movie-content">
-                {topRatedList}
-                </div>
-            </div>
+            <MovieSection streaming={true} headerText="What to stream..." netflix={topRatedList} hulu={movieList} disneyplus={upcomingList}/>
 
-            <h2>Top Rated Content</h2>
-            <div class="movies-section">
-                <div class="movie-content">
-                  {topRatedList}
-                </div>
-            </div>
+            <MovieSection headerText="Top Rated Content" posterList={topRatedList} />
 
-            <h2>Content by Genre</h2>
-            <ul className="list-inline">{genreList}</ul>
-            <div class="movies-section">
-                <div class="movie-content">
-                  {movieList}
-                </div>
-            </div>
+            <MovieSection headerText="Content By Genre" posterList={movieList} genreList={genreList}/>
 
-            <h2>Movies That Came Out Today</h2>
-            <div class="movies-section">
-                <div class="movie-content">
-                    {upcomingList}
-                </div>
-            </div>
+            <MovieSection headerText="Upcoming Movies" posterList={upcomingList} />
 
             <a id="scroll-btn" href="#">Scroll to top</a>
           </div>

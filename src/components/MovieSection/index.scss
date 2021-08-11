@@ -1,0 +1,29 @@
+@import "../../styles/mixins/mixins.scss";
+
+.movies-section{
+  @include container-style;
+  margin-top: 10px;
+  margin-bottom: 31px;
+
+  overflow-x: scroll;
+  
+  .movie-content{
+      display: flex;
+  }
+}
+
+.streambtn-container{
+  width: 80%;
+
+  button{
+    @include button-teal;
+    
+    &:first-child{
+      margin-left: 0;
+    }
+
+  }
+  .active{
+    @include button-teal-disabled;
+  }
+}

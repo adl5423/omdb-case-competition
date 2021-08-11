@@ -37,35 +37,6 @@
     justify-content: center;
 }
 
-.movies-section{
-    @include container-style;
-    margin-top: 10px;
-    margin-bottom: 31px;
-
-    overflow-x: scroll;
-    
-    .movie-content{
-        display: flex;
-
-        img{
-            height: 20rem;
-            border: 1px solid white;
-        }
-
-        .card{
-            display: flex;
-            flex-direction: column;
-            align-content: center;
-            padding-right: 2rem;
-
-            h3{
-                font-size: 1.5rem;
-                margin-top: 1rem;
-            }
-        }
-    }
-}
-
 ul{
     width: 80%;
     display: flex;
