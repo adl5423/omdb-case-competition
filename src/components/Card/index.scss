@@ -2,7 +2,7 @@
 @import '/./src/styles/colors/colors.scss';
 
 
-.card-container{
+.card-container {
   @include container-style;
   display:flex;
   flex-direction: row;
@@ -12,23 +12,23 @@
 
   margin: 2rem 0;
 
-  .card-body{
+  .card-body {
     display: flex;
     flex-direction: column;
     flex: 2;
   }
   
-  .card-header{
+  .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .description{
+  .description {
     margin: 1rem 0;
   }
 
-  .card-btn{
+  .card-btn {
     @include button-pink;
   }
 }

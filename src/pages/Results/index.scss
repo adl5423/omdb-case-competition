@@ -1,26 +1,26 @@
 @import "../../styles/mixins/mixins.scss";
 
-.results-page{
+.results-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  h1{
+  h1 {
     margin-top: 3rem;
     margin-bottom:2.5rem;
   }
 
-  form{
+  form {
     @include searchbar;
   }
 
-  button{
+  button {
     @include button-teal;
   }
 }
 
-#scroll-btn{
+#scroll-btn {
   @include button-teal;
   margin-bottom: 3rem;
 }
