@@ -26,6 +26,17 @@ export const fetchMovies = async () => {
     } catch (error) { }
 }
 
+export const fetchMovieVideos = async (id) => {
+    try {
+        const { data } = await axios.get(`${DETAIL_URL}/${id}/videos`, {
+            params: {
+                api_key: API_KEY,
+            }
+        });
+        return data['results'][0];
+    } catch (error) { }
+}
+
 export const fetchMovieByGenre = async (genre_id) => {
     try {
         const { data } = await axios.get(MOVIES_URL, {

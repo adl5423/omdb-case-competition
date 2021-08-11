@@ -96,7 +96,9 @@ function Home(props) {
                     </button>
                 </Link>
             </form>
+            <center>
             <a href="#movies" id="search-btn">I'm not sure...</a>
+            </center>
         </div>
 
         <div id="movies" className="movies-container">
