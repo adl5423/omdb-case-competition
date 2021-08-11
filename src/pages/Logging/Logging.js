@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './index.scss';
 import '../../styles/index.scss'
 
@@ -16,7 +17,9 @@ function Logging() {
                     <p>Ready to see your personalized dashboard?</p>
 
                     <div class="button-container">
-                        <button id="back-home-btn">Home</button>
+                        <Link to="/">
+                            <button id="back-home-btn">Home</button>
+                        </Link>
                     </div>
                 </div>
             </div>
