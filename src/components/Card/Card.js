@@ -1,19 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './index.scss';
 
-function Card() {
+import {
+    getStreamingProvider
+} from '../../actions/service';
+
+function Card(props) {
+    const [stream, setStream] = useState([]);
+
+    useEffect(() => {
+        const fetchAPI = async () => {
+            setStream(await getStreamingProvider(props.item.id));
+        };
+
+        fetchAPI();
+    }, []);
+
     return (
         <div className= "card-container">
-            <img src="https://via.placeholder.com/220x350.png" alt="Card img here" />
+            <img src={props.item.backPoster} alt="Card img here" />
             <div className="card-body">
                 <div className="card-header">
-                    <h2 className="title">Movie Title (Year)</h2>
-                    <h3 className="rating">[rating]</h3>
+                    <h2 className="title">{props.item.title} ({props.item.releaseDate})</h2>
+                    <h3 className="rating">{props.item.rating}</h3>
                 </div>
-                <p className="description">Description</p>
+                <p className="description">{props.item.overview}</p>
 
                 <div className="card-btn-container">
-                    <a className="card-btn" href="somethinghere">Watch on [streaming platform]</a>
+                    <a className="card-btn" href="somethinghere">Watch on {stream}</a>
                     <button className="card-btn">Like</button>
                 </div>
             </div>

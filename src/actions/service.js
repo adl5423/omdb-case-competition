@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {UPCOMING_URL, MOVIES_URL,SEARCH_URL, DETAIL_URL, GENRE_URL, API_KEY, NOW_PLAYING_URL, TOP_RATED_URL, PERSON_WEEK_URL} from '../const';
+import {UPCOMING_URL, MOVIES_URL,SEARCH_URL, DETAIL_URL, GENRE_URL, API_KEY, NOW_PLAYING_URL, TOP_RATED_URL, PERSON_WEEK_URL, STREAM_URL} from '../const';
 
 
 export const fetchMovies = async () => {
@@ -172,12 +172,31 @@ export const searchMovieList = async (keyword) => {
             poster: posterUrl + m['poster_path'],
             overview: m['overview'],
             rating: m['vote_average'],
+            releaseDate: m['release_date'],
+        }))
+        console.log(modifiedData)
+        return modifiedData;
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getStreamingProvider = async (id) => {
+    try{
+        const { data } = await axios.get(`${STREAM_URL}/${id}/watch/providers`, {
+            params: {
+                api_key: API_KEY,
+            }
+        });
+        const modifiedData = data['results'] ((m) => ({
+            streamObj: m['US']
         }))
         console.log(modifiedData)
         return modifiedData;
         
     } catch (error) { }
-    }
+}
 
 
 export const fetchCasts = async (id) => {

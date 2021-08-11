@@ -11,8 +11,12 @@
   gap: 2rem;
 
   margin: 2rem 0;
-
-  .card-body {
+  
+  img{
+    height: 30rem;
+    width: 30rem;
+  }
+  .card-body{
     display: flex;
     flex-direction: column;
     flex: 2;
