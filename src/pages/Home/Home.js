@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './index.scss'
 import '../../styles/index.scss'
+import Searchbar from "../../components/Searchbar/Searchbar.js";
 // eslint-disable-next-line
 import {
   searchMovieList,
@@ -11,7 +12,7 @@ import {
   fetchTopratedMovie,
 } from '../../actions/service';
 
-function Home() {
+function Home(props) {
     const [nowPlaying, setNowPlaying] = useState([]);
     const [genres, setGenres] = useState([]);
     const [movieByGenre, setMovieByGenre] = useState([]);
@@ -28,14 +29,11 @@ function Home() {
       fetchAPI();
     }, []);
 
-    const onFormSubmit = e => {
-      e.preventDefault();
-   }
+
 
     const handleGenreClick = async (genre_id) => {
       setMovieByGenre(await fetchMovieByGenre(genre_id));
     };
-
 
     const genreList = genres.map((item, index) => {
       const pickedGenres = ['Action', 'Adventure', 'Animation', 'Comedy', 'Drama', 'Horror', 'Romance', 'Science Fiction', 'TV Movie', 'Thriller'];
@@ -82,14 +80,7 @@ function Home() {
       <>
         <div id="search" class="search-container">
             <h1 id="search-title">Need something to watch?</h1>
-            <form onSubmit={onFormSubmit}>
-                <input type="text" placeholder="search here" id="search-field" name="search-field" />
-                <Link to="/results">
-                    <button type="submit">
-                        Search
-                    </button>
-                </Link>
-            </form>
+            <Searchbar />
             <a href="#movies" id="search-btn">I'm not sure...</a>
         </div>
 
