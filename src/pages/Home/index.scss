@@ -1,43 +1,45 @@
 @import "../../styles/mixins/mixins.scss";
 
-#search{
+#search {
     width: 100vw;
     height: 100vh;
 }
 
-#movies{
+#movies {
     width: 100vw;
     height: max-content;
 }
 
 
-.search-container, .movies-container{
+.search-container, .movies-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 
-    form{
+    form {
         @include searchbar;
     }
-    h1{
+
+    h1 {
         margin-bottom:2.5rem;
     }
+
     h2 {
         align-self: flex-start;
         margin-left: 9rem;
     }
 
-    button, #scroll-btn, #search-btn{
+    button, #scroll-btn, #search-btn {
         @include button-teal;
     }
 }
 
-.search-container{
+.search-container {
     justify-content: center;
 }
 
-ul{
+ul {
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -45,7 +47,8 @@ ul{
     justify-content: center;
     padding: 0;
 }
-#search-btn{
+
+#search-btn {
     position: absolute;
     top: 90vh;
     left: 42.9vw;
