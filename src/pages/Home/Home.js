@@ -80,6 +80,7 @@ function Home() {
 
     return (
       <>
+
         <div id="search" class="search-container">
             <h1 id="search-title">Need something to watch?</h1>
             <form onSubmit={onFormSubmit}>
@@ -90,7 +91,7 @@ function Home() {
                     </button>
                 </Link>
             </form>
-            <a href="#movies" id="search-btn">I'm not sure...</a>
+            <a href="#movies" id="search-btn">Can't decide?</a>
         </div>
 
         <div id="movies" class="movies-container">
