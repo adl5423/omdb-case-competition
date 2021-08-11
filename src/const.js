@@ -8,6 +8,7 @@ export const GENRE_URL = `${URL}/genre/movie/list`;
 export const MOVIES_URL = `${URL}/discover/movie`;
 export const PERSON_WEEK_URL = `${URL}/trending/person/week`;
 export const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie?query=';
+export const STREAM_URL = 'https://developers.themoviedb.org/3/movies/get-movie-watch-providers';
 export const PERSON_URL = `${URL}/person/`;
 export const IMG_URL = 'https://image.tmdb.org/t/p/';
 export const YOUTUBE_URL = 'https://www.youtube.com/embed/';

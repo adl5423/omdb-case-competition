@@ -5,37 +5,60 @@ import Card from '../../components/Card/Card'
 import './index.scss';
 import '../../styles/index.scss'
 
+import {
+    searchMovieList
+} from '../../actions/service';
+
 function Results() {
     const [query, setQuery] = useState("");
+    const [search, setSearch] = useState([]);
+    const [results, setResults] = useState([]);
 
-    const onFormSubmit = e => {
-        e.preventDefault();
+    useEffect(() => {
+        const fetchAPI = async () => {
+            setQuery(await localStorage.getItem('query'));
+            console.log("value of query: ", localStorage.getItem('query'));
+            setSearch(await searchMovieList(localStorage.getItem('query')));
+            
+            // setResults(search.slice(0, 10).map((item, index) => {
+            //     return (
+            //         <Card item={item} index={index} />  
+            //         );
+            //     }));
+            };
+            
+        fetchAPI();
+    }, []);
+
+    function refreshPage(){
+        window.location.reload(false);
     }
+    
+    const searchList = search.slice(0, 10).map((item, index) => {
+        return (
+            <Card item={item} index={index} />  
+        );
+    });
+
 
     const handleChange = event => {
         setQuery(event.target.value);
+        localStorage.setItem('query', event.target.value);
     }
-
-    useEffect(() => {
-        setQuery(localStorage.getItem('query'));
-    }, []);
 
     return (
         <div className="results-page">
             <h1>Looking for something?</h1>
-            <form onSubmit={onFormSubmit}>
+            <form>
                 <input type="text" placeholder= {query} id="search-field" name="search-field" onChange={handleChange}/>
                 <Link to="/results">
-                    <button type="submit">
+                    <button type="submit" onClick={refreshPage}>
                         Search
                     </button>
                 </Link>
             </form>
 
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {searchList}
 
             <a id="scroll-btn" href="#">Scroll to top</a>
         </div>

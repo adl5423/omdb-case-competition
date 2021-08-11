@@ -7,7 +7,6 @@ import MovieSection from '../../components/MovieSection/MovieSection'
 // eslint-disable-next-line
 import {
   fetchUpcomingMovies,
-  searchMovieList,
   fetchMovies,
   fetchGenre,
   fetchMovieByGenre,
@@ -21,7 +20,6 @@ function Home(props) {
     const [topRated, setTopRated] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
     const [query, setQuery] = useState("Search here");
-    console.log(query)
 
     useEffect(() => {
       const fetchAPI = async () => {
