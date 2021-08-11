@@ -57,7 +57,7 @@ function Home() {
       );
     });
 
-    const movieList = movieByGenre.slice(0, 4).map((item, index) => {
+    const movieList = movieByGenre.slice(0, 8).map((item, index) => {
       return (
         <div className="card" key={index}>
           <Link to={`/movie/${item.id}`}>
@@ -81,7 +81,7 @@ function Home() {
     return (
       <>
         <div id="search" class="search-container">
-            <h1 id="search-title">looking for something?</h1>
+            <h1 id="search-title">Need something to watch?</h1>
             <form onSubmit={onFormSubmit}>
                 <input type="text" placeholder="search here" id="search-field" name="search-field" />
                 <Link to="/results">
@@ -90,27 +90,27 @@ function Home() {
                     </button>
                 </Link>
             </form>
-            <a href="#movies" id="search-btn">More Content</a>
+            <a href="#movies" id="search-btn">I'm not sure...</a>
         </div>
 
         <div id="movies" class="movies-container">
             <h1 id="more-content-title">If you're indecisive...</h1>
 
-            <h3>What to stream...</h3>
+            <h2>What to stream...</h2>
             <div class="movies-section">
                 <div class="button-container">
                     {/* //insert tabs here */}
                 </div>
             </div>
 
-            <h3>Top Rated Content</h3>
+            <h2>Top Rated Content</h2>
             <div class="movies-section">
                 <div class="movie-content">
                   {topRatedList}
                 </div>
             </div>
 
-            <h3>Content by Genre</h3>
+            <h2>Content by Genre</h2>
             <ul className="list-inline">{genreList}</ul>
             <div class="movies-section">
                 <div class="movie-content">
@@ -118,7 +118,7 @@ function Home() {
                 </div>
             </div>
 
-            <h3>Movies That Came Out Today</h3>
+            <h2>Movies That Came Out Today</h2>
             <div class="movies-section">
                 <div class="movie-content">
                     xxx
