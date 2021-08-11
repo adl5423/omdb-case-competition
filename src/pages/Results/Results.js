@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Card from '../../components/Card/Card'
 
@@ -6,16 +6,11 @@ import './index.scss';
 import '../../styles/index.scss'
 
 function Results() {
-
-    const onFormSubmit = e => {
-        e.preventDefault();
-    }
-
     return (
         <div class="results-page">
             <h1>Looking for something?</h1>
             <form onSubmit={onFormSubmit}>
-                <input type="text" placeholder="search here" id="search-field" name="search-field" />
+                <input type="text" placeholder= {query === "" ? "Search here" : query} id="search-field" name="search-field" />
                 <Link to="/results">
                     <button type="submit">
                         Search

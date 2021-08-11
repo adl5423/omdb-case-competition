@@ -23,7 +23,7 @@
     h1{
         margin-bottom:2.5rem;
     }
-    h3 {
+    h2 {
         align-self: flex-start;
         margin-left: 9rem;
     }
@@ -56,10 +56,11 @@
             display: flex;
             flex-direction: column;
             align-content: center;
-            margin-right: 2rem;
+            padding-right: 2rem;
 
             h3{
-                margin: 0;
+                font-size: 1.5rem;
+                margin-top: 1rem;
             }
         }
     }
@@ -70,6 +71,7 @@ ul{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 0;
 }
 #search-btn{

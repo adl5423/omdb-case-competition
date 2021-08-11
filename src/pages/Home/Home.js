@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './index.scss'
 import '../../styles/index.scss'
+import Searchbar from "../../components/Searchbar/Searchbar.js";
 // eslint-disable-next-line
 import {
   fetchUpcomingMovies,
@@ -12,13 +13,13 @@ import {
   fetchTopratedMovie,
 } from '../../actions/service';
 
-function Home() {
+function Home(props) {
     const [nowPlaying, setNowPlaying] = useState([]);
     const [genres, setGenres] = useState([]);
     const [movieByGenre, setMovieByGenre] = useState([]);
     const [topRated, setTopRated] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
-  
+
     useEffect(() => {
       const fetchAPI = async () => {
         setNowPlaying(await fetchMovies());
@@ -27,32 +28,36 @@ function Home() {
         setMovieByGenre(await fetchMovieByGenre(28));
         setTopRated(await fetchTopratedMovie());
       };
-  
+
       fetchAPI();
     }, []);
 
-    const onFormSubmit = e => {
-      e.preventDefault();
-   }
-  
+
+
     const handleGenreClick = async (genre_id) => {
       setMovieByGenre(await fetchMovieByGenre(genre_id));
     };
-    
+
     const genreList = genres.map((item, index) => {
+      const pickedGenres = ['Action', 'Adventure', 'Animation', 'Comedy', 'Drama', 'Horror', 'Romance', 'Science Fiction', 'TV Movie', 'Thriller'];
       return (
-        <li className="list-inline-item" key={index}>
-          <button
-            type="button"
-            onClick={() => {
-              handleGenreClick(item.id);
-            }}
-          >
-            {item.name}
-          </button>
-        </li>
+        <>
+          {pickedGenres.includes(item.name) ?
+            (<li className="list-inline-item" key={index}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleGenreClick(item.id);
+                  }}
+                >
+                  {item.name}
+                </button>
+            </li>)
+        : null}
+        </>
       );
     });
+
   
     const movieList = movieByGenre.slice(0, 20).map((item, index) => {
       return (
@@ -75,6 +80,7 @@ function Home() {
         </div>
       );
     });
+
   
     const topRatedList = topRated.slice(0, 20).map((item, index) => {
       return (
@@ -85,48 +91,42 @@ function Home() {
         </div>
       );
     });
-  
+
     return (
       <>
+
         <div id="search" class="search-container">
-            <h1 id="search-title">looking for something?</h1>
-            <form onSubmit={onFormSubmit}>
-                <input type="text" placeholder="search here" id="search-field" name="search-field" />
-                <Link to="/results">
-                    <button type="submit">
-                        Search
-                    </button>
-                </Link>
-            </form>
-            <a href="#movies" id="search-btn">More Content</a>
+            <h1 id="search-title">Need something to watch?</h1>
+            <Searchbar />
+            <a href="#movies" id="search-btn">I'm not sure...</a>
         </div>
 
         <div id="movies" class="movies-container">
             <h1 id="more-content-title">If you're indecisive...</h1>
 
-            <h3>What to stream...</h3>
+            <h2>What to stream...</h2>
             <div class="movies-section">
               <div class="movie-content">
                 {topRatedList}
                 </div>
             </div>
 
-            <h3>Top Rated Content</h3>
+            <h2>Top Rated Content</h2>
             <div class="movies-section">
                 <div class="movie-content">
                   {topRatedList}
                 </div>
             </div>
 
-            <h3>Content by Genre</h3>
+            <h2>Content by Genre</h2>
             <ul className="list-inline">{genreList}</ul>
             <div class="movies-section">
                 <div class="movie-content">
-                  {movieList} 
+                  {movieList}
                 </div>
             </div>
 
-            <h3>Movies That Came Out Today</h3>
+            <h2>Movies That Came Out Today</h2>
             <div class="movies-section">
                 <div class="movie-content">
                     {upcomingList}
