@@ -1,5 +1,13 @@
 # Code Explanation
 
+## Before running
+
+Install 'react-bootstrap' and 'react-player'.
+
+To install, please type in terminal the following instructions:
+
+### `npm install react-bootstrap` 
+### `npm install react-player`
 
 # Getting Started with Create React App
 
