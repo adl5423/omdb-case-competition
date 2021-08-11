@@ -51,13 +51,13 @@ function Home() {
       );
     });
   
-    const movieList = movieByGenre.slice(0, 4).map((item, index) => {
+    const movieList = movieByGenre.slice(0, 8).map((item, index) => {
       return (
         <div className="card" key={index}>
           <Link to={`/movie/${item.id}`}>
             <img src={item.poster} alt={item.title}></img>
           </Link>
-          <h3>{item.title}</h3>
+          <p>{item.title}</p>
         </div>
       );
     });
@@ -68,6 +68,7 @@ function Home() {
           <Link to={`/movie/${item.id}`}>
             <img src={item.poster} alt={item.title}></img>
           </Link>
+          <p>{item.title}</p>
         </div>
       );
     });
@@ -90,21 +91,21 @@ function Home() {
         <div id="movies" class="movies-container">
             <h1 id="more-content-title">If you're indecisive...</h1>
 
-            <h3>What to stream...</h3>
+            <h2>What to stream...</h2>
             <div class="movies-section">
                 <div class="button-container">
                     {/* //insert tabs here */}
                 </div>
             </div>
 
-            <h3>Top Rated Content</h3>
+            <h2>Top Rated Content</h2>
             <div class="movies-section">
                 <div class="movie-content">
                   {topRatedList}
                 </div>
             </div>
 
-            <h3>Content by Genre</h3>
+            <h2>Content by Genre</h2>
             <ul className="list-inline">{genreList}</ul>
             <div class="movies-section">
                 <div class="movie-content">
@@ -112,7 +113,7 @@ function Home() {
                 </div>
             </div>
 
-            <h3>Movies That Came Out Today</h3>
+            <h2>Movies That Came Out Today</h2>
             <div class="movies-section">
                 <div class="movie-content">
                     xxx
