@@ -1,13 +1,78 @@
 # Code Explanation
 
-## Before running
+## Before Running
 
-Install 'react-bootstrap' and 'react-player'.
+**Install 'react-bootstrap' and 'react-player'.**
 
 To install, please type in terminal the following instructions:
 
 ### `npm install react-bootstrap` 
 ### `npm install react-player`
+
+## Introduction
+
+This code permits user to access localhost for Movie Discovery App. Contains four active pages: 'Home', 'Results', 'Movies', and 'Movie Info'. 
+
+## General Guide
+
+Initial homepage contains search bar and caption. When clicking "I'm not sure" or scrolling down, "If you're indecisive" section will appear, which contains diferent sections displaying categories, which platform to watch, top rated content, and upcoming movies. When searching for movie or clicking one, complete information about it, including title, description, rating, actors, etc. will appear. 
+
+## Code Review
+
+### Service.js
+
+Fetches API calls and transport them into the respective sections with Axios. Found under 'Actions' folder.
+
+### Components
+
+Contains structure and styling for movie cards, compact cards, and movie sections. Each permits display of poster and general information for movie.
+
+### Pages
+
+*Home*
+
+Contains structure and styling for homepage, which includes scrolling with categories and search.
+
+*~~Landing~~ (inactive)*
+
+Display general information regarding user's profile and likes.
+
+*~~Logging~~ (inactive)*
+
+Display log for quantity of movies liked and saved.
+
+*~~Login~~ (inactive)*
+
+Permits user to register account and login into profile.
+
+*Movie Details*
+
+Import API calls into code structure, along with font settings.
+
+### Results
+
+Enables structure and styling for results page.
+
+### Styles
+
+Sets basic templates for colors, images, and fonts, later to be imported in all page styling. Additionally, it sets a basic styling for attributes and properties of the page.
+
+### App.js
+
+Structure for pages in web app.
+
+### Const.js
+
+Import links and API attributes.
+
+### Index.js
+
+Exports React DOM and Router to App and subsequently to pages.
+
+#
+#
+#
+
 
 # Getting Started with Create React App
 
